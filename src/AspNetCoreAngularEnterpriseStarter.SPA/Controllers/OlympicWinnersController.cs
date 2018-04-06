@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using AspNetCoreAngularEnterpriseStarter.SPA.Extensions;
 
 namespace AspNetCoreAngularEnterpriseStarter.SPA.Controllers
 {
@@ -13,11 +15,11 @@ namespace AspNetCoreAngularEnterpriseStarter.SPA.Controllers
         public OlympicWinnersController(IHttpClientFactory httpClientFactory) => _httpClientFactory = httpClientFactory;
 
         [HttpGet]
-        public async Task<dynamic> Get()
+        public async Task<ActionResult<ICollection<OlympicWinnerApiModel>>> Get()
         {
             var client = _httpClientFactory.CreateClient();
 
-            return await client.GetAsync("https://www.ag-grid.com/olympicWinners.json");
+            return new OkObjectResult(await client.GetAsync<ICollection<OlympicWinnerApiModel>>("https://www.ag-grid.com/olympicWinners.json"));
         }
 
     }

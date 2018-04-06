@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { OlympicWinnersPageComponent } from './olympic-winners-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
+import { AgGridModule } from 'ag-grid-angular';
+import { FormsModule } from '@angular/forms';
 
 const declarations = [
   OlympicWinnersPageComponent
@@ -10,6 +12,8 @@ const declarations = [
 
 @NgModule({
   imports: [
+    FormsModule,
+    AgGridModule.withComponents([]),
     CommonModule,    
     MaterialModule,
     SharedModule

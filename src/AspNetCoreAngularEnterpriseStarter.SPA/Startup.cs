@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace AspNetCoreAngularEnterpriseStarter.SPA
 {
@@ -20,6 +21,20 @@ namespace AspNetCoreAngularEnterpriseStarter.SPA
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSwaggerGen(options =>
+            {
+                options.DescribeAllEnumsAsStrings();
+                options.SwaggerDoc("v1", new Info
+                {
+                    Title = "ASP.NET Core Angular Enterprise Starter",
+                    Version = "v1",
+                    Description = "REST API",
+                });
+                options.CustomSchemaIds(x => x.FullName);
+            });
+
+            services.AddHttpClient();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -40,6 +55,12 @@ namespace AspNetCoreAngularEnterpriseStarter.SPA
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options => {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "REST API");
+
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

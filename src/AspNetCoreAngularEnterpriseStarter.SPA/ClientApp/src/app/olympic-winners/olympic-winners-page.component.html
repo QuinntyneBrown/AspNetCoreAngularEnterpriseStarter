@@ -1,3 +1,9 @@
-<p>
-  olympic-winners-page works!
-</p>
+<section class="mat-typography">
+  <h2>Olympic Winners</h2>
+</section>
+
+<ag-grid-angular class="ag-theme-material"
+                 [rowData]="olympicWinners$ | async"
+                 [columnDefs]="columnDefinitions"
+                 (gridReady)="onGridReady($event)">
+</ag-grid-angular>
