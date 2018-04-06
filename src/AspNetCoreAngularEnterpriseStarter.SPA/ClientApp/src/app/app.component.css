@@ -6,7 +6,8 @@
   display:block;
 }
 
-.router-container-outlet {
-  width:100%;
-  height:100%;
+.router-outlet-container {
+  width: calc(100% - 32px);
+  height: 100%;
+  padding: 0px 16px;
 }

@@ -36,7 +36,6 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\material\" />
-    <Folder Include="ClientApp\src\app\shared\components\" />
   </ItemGroup>
 
   <ItemGroup>
