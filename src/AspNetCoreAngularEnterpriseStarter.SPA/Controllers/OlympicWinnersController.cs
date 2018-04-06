@@ -19,7 +19,9 @@ namespace AspNetCoreAngularEnterpriseStarter.SPA.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            return new OkObjectResult(await client.GetAsync<ICollection<OlympicWinnerApiModel>>("https://www.ag-grid.com/olympicWinners.json"));
+            var olympicWinners = await client.GetAsync<ICollection<OlympicWinnerApiModel>>("https://www.ag-grid.com/olympicWinners.json");
+
+            return new OkObjectResult(olympicWinners);
         }
 
     }
