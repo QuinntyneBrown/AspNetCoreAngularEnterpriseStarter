@@ -1,7 +1,7 @@
 :host {
   display:block;
   width:100%;
-  height:100%;
+  height:calc(100vh - 68px);
 }
 
 ag-grid-angular {

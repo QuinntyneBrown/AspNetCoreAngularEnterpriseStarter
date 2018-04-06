@@ -53,7 +53,7 @@ namespace AspNetCoreAngularEnterpriseStarter.SPA
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
+                //app.UseHsts();
             }
 
             app.UseSwagger();
@@ -62,7 +62,7 @@ namespace AspNetCoreAngularEnterpriseStarter.SPA
 
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 

@@ -18,7 +18,7 @@ export class OlympicWinnersPageComponent implements OnInit {
     this.olympicWinners$ = this._olympicWinnersService.get();
   }
 
-  public columnDefintions: Array<ColDef> = [
+  public columnDefs: Array<ColDef> = [
     { headerName: "Athlete", field: "athlete" },
     { headerName: "Sport", field: "sport" },
     { headerName: "Age", field: "age" },
