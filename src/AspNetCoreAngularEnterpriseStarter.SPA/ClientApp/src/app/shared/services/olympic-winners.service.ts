@@ -8,7 +8,7 @@ export class OlympicWinnersService {
   constructor(private _httpClient: HttpClient) { }
 
   public get(): Observable<Array<OlympicWinner>> {
-    return this._httpClient.get<Array<OlympicWinner>>("/api/olympicWinners");
+    return this._httpClient.get<Array<OlympicWinner>>("https://www.ag-grid.com/olympicWinners.json");
   }
 
 }

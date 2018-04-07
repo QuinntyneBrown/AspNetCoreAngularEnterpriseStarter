@@ -5,5 +5,8 @@
 <ag-grid-angular class="ag-theme-material"
                  [columnDefs]="columnDefs"
                  [rowData]="olympicWinners$ | async"
-                 (gridReady)="onGridReady($event)">
+                 (gridReady)="onGridReady($event)"
+                 [pagination]="true"
+                 [paginationPageSize]="5"
+                 >
 </ag-grid-angular>
