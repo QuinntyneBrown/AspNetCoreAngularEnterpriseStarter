@@ -5,6 +5,13 @@ import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { AgGridComponentsModule } from '../ag-grid-components/ag-grid-components.module';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { HttpClient } from '@angular/common/http';
+
+export function TranslateHttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 const declarations = [
   OlympicWinnersPageComponent
@@ -16,7 +23,14 @@ const declarations = [
     FormsModule,
     CommonModule,    
     MaterialModule,
-    SharedModule
+    SharedModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: TranslateHttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   declarations
 })

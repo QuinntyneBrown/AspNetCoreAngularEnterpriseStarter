@@ -3,6 +3,7 @@ import { OlympicWinnersService } from '../shared/services/olympic-winners.servic
 import { Observable } from 'rxjs';
 import { OlympicWinner } from '../shared/models/olympic-winner.model';
 import { ColDef, GridApi, GridOptions } from 'ag-grid';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'olympic-winners-page',
@@ -11,9 +12,18 @@ import { ColDef, GridApi, GridOptions } from 'ag-grid';
 })
 export class OlympicWinnersPageComponent implements OnInit {
   constructor(
-    private _olympicWinnersService: OlympicWinnersService
-  ) { }
-  
+    private _olympicWinnersService: OlympicWinnersService,
+    private _translateService: TranslateService
+  ) {
+
+    _translateService.setDefaultLang('en');
+
+    _translateService.use('en');
+  }
+
+  public title: string = "Olympic Winners";
+
+
   ngOnInit() {
     this.olympicWinners$ = this._olympicWinnersService.get();
   }
