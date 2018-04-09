@@ -9,10 +9,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient } from '@angular/common/http';
 
-export function TranslateHttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient,"./api/i18n/","");
-}
-
 const declarations = [
   OlympicWinnersPageComponent
 ];
@@ -24,13 +20,7 @@ const declarations = [
     CommonModule,    
     MaterialModule,
     SharedModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: TranslateHttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+    TranslateModule
   ],
   declarations
 })
