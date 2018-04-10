@@ -13,5 +13,4 @@ export class AppComponent {
 
     _translateService.use('en');
   }
-
 }

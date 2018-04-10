@@ -3,6 +3,7 @@ import { OlympicWinnersService } from '../shared/services/olympic-winners.servic
 import { Observable } from 'rxjs';
 import { OlympicWinner } from '../shared/models/olympic-winner.model';
 import { ColDef, GridApi, GridOptions } from 'ag-grid';
+import { CheckboxCellComponent } from '../ag-grid-components/checkbox-cell.component';
 
 @Component({
   selector: 'olympic-winners-page',
@@ -30,6 +31,10 @@ export class OlympicWinnersPageComponent implements OnInit {
     { headerName: "Bronze", field: "bronze" },
     { headerName: "Total", field: "total" }
   ];
+
+  public frameworkComponents: any = {
+    checkboxCellRenderer: CheckboxCellComponent
+  };
 
   public onGridReady($event) { $event.api.sizeColumnsToFit(); }
 

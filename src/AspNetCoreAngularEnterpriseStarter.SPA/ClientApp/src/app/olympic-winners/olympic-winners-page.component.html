@@ -6,6 +6,8 @@
                  [columnDefs]="columnDefs"
                  [rowData]="olympicWinners$ | async"
                  (gridReady)="onGridReady($event)"
+                 [enableSorting]="true"
+                 [enableFilter]="true"
                  [pagination]="true"
                  [paginationPageSize]="5">
 </ag-grid-angular>
