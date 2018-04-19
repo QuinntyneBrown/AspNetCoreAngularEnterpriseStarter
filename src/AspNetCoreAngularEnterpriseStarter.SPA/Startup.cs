@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
 
 namespace AspNetCoreAngularEnterpriseStarter.SPA
 {
@@ -37,7 +38,7 @@ namespace AspNetCoreAngularEnterpriseStarter.SPA
                 options.CustomSchemaIds(x => x.FullName);
             });
 
-            services.AddHttpClient();
+            services.AddHttpClient<OlympicWinnersClient>(client => client.BaseAddress = new Uri("https://www.ag-grid.com/"));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

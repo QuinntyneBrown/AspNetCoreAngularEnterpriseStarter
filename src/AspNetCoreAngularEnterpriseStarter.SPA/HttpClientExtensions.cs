@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace AspNetCoreAngularEnterpriseStarter.SPA.Extensions
+namespace AspNetCoreAngularEnterpriseStarter.SPA
 {
     public static class HttpClientExtensions
     {

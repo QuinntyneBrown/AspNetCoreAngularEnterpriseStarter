@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AspNetCoreAngularEnterpriseStarter.SPA.Controllers
+﻿namespace AspNetCoreAngularEnterpriseStarter.SPA
 {
     public class OlympicWinnerApiModel
     {
